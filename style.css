@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Bebas+Neue&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 🎨 PALETA BASTARDOS INGLÓRIOS */
+:root {
+    --blood-red: #B01217;
+    --dark-blood: #7A0D12;
+    --paper-vintage: #E9DFC2;
+    --paper-dirty: #CFC3A3;
+    --black-deep: #0B0B0B;
+    --gunmetal: #6A6A6A;
+    --steel: #9B9B9B;
+    --army-green: #3F4A30;
+}
+
+/* ================== FUNDO / BODY ================== */
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #120404, #0B0B0B 40%, #0B0B0B);
+    color: var(--paper-vintage);
+    font-family: "Quicksand", sans-serif;
+    overflow-x: hidden;
+}
+
+/* ================== HEADER – ESTILO MILITAR TARANTINO ================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--black-deep);
+    border-bottom: 4px solid var(--blood-red);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
+}
+
+/* textura sutil (se quiser, pode trocar ou remover) */
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            -8deg,
+            rgba(255, 255, 255, 0.03) 0,
+            rgba(255, 255, 255, 0.03) 4px,
+            transparent 4px,
+            transparent 8px
+        );
+    opacity: .15;
+    pointer-events: none;
+}
+
+header h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.3rem;
+    color: var(--paper-vintage);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 3px 3px 0 var(--blood-red);
+    position: relative;
+    z-index: 1;
+}
+
+/* Wrapper do input + botão */
+header > div {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    z-index: 1;
+}
+
+/* ================== INPUT DE BUSCA ================== */
+
+div input {
+    padding: .7rem 1rem;
+    width: 18rem;
+    background: var(--black-deep);
+    border: 2px solid var(--gunmetal);
+    color: var(--paper-vintage);
+    border-radius: 0;
+    font-size: 1rem;
+    transition: 0.2s;
+}
+
+div input::placeholder {
+    color: var(--steel);
+}
+
+div input:focus {
+    outline: none;
+    border-color: var(--blood-red);
+    box-shadow: 0 0 4px var(--blood-red);
+}
+
+/* ================== BOTÃO – MILITAR / SANGUE ================== */
+
+#botao-busca {
+    padding: .7rem 1.6rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.1rem;
+    background: var(--blood-red);
+    border: 2px solid #000;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: 0.15s;
+    box-shadow: 3px 3px 0 #000;
+}
+
+#botao-busca:hover {
+    background: var(--dark-blood);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #000;
+}
+
+#botao-busca:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 #000;
+}
+
+/* ================== MAIN ================== */
+
+main {
+    max-width: 80rem;
+    margin: 2rem auto 4rem;
+    padding: 0 1rem;
+}
+
+/* ================== GRID DE CARDS ================== */
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 26px;
+    padding-bottom: 3rem;
+}
+
+/* ================== CARD – ESTILO PÔSTER GUERRA ================== */
+
+.card {
+    background: var(--black-deep);
+    border: 4px solid var(--paper-dirty);
+    max-width: 380px;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+    transition: 0.25s;
+
+    /* NOVO: para alinhar conteúdo e botão */
+    display: flex;
+    flex-direction: column;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(
+            -6deg,
+            rgba(0, 0, 0, 0.25) 0,
+            rgba(0, 0, 0, 0.25) 2px,
+            transparent 2px,
+            transparent 5px
+        );
+    opacity: .22;
+    pointer-events: none;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(176, 18, 23, 0.7);
+    border-color: var(--blood-red);
+}
+
+/* ================== POSTER ================== */
+/* todas as capas ficam com a MESMA ALTURA, sem distorcer (apenas corta) */
+
+.card-image {
+    width: 100%;
+    height: 420px;              /* altura fixa para alinhar os posters */
+    background: #000;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* mantém proporção, corta se precisar */
+}
+
+/* ================== TEXTO DO CARD ================== */
+
+.card-content {
+    padding: 18px;
+
+    /* NOVO: vira coluna flex e cresce para empurrar o botão pra baixo */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.card-content h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--paper-vintage);
+    text-shadow: 2px 2px 0 var(--blood-red);
+    margin-bottom: 10px;
+
+}
+
+.imdb-badge {
+    background: var(--paper-vintage);
+    color: #000;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 0;
+    margin-bottom: 10px;
+    display: inline-block;
+    border-left: 4px solid var(--blood-red);
+    width: 40%;
+}
+
+.card-content p {
+    color: var(--paper-vintage);
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.card-content p.sinopse {
+    color: #e7e0cf;
+}
+
+.card-content strong {
+    color: var(--blood-red);
+}
+
+/* ================== BOTÃO TRAILER – ESTILO GUERRILHA ================== */
+
+.trailer-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background: var(--army-green);
+    color: var(--paper-vintage);
+    font-family: "Bebas Neue", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    border: 2px solid #000;
+    box-shadow: 3px 3px 0 #000;
+    transition: 0.15s;
+    font-size: 0.9rem;
+
+    /* NOVO: sempre no fim do card */
+    margin-top: auto;
+}
+
+.trailer-btn:hover {
+    background: #2f3a26;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #000;
+}
+
+.trailer-btn:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 #000;
+}
+
+/* ================== FOOTER ================== */
+
+.footer {
+    padding: 16px;
+    background: var(--black-deep);
+    border-top: 4px solid var(--blood-red);
+    text-align: center;
+    color: var(--paper-dirty);
+    margin-top: 2rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.footer-links a {
+    color: var(--paper-vintage);
+    text-decoration: none;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 0.75rem;
+    transition: 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--blood-red);
+}
+
+/* ================== RESPONSIVIDADE ================== */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    header > div {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    header > div input {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    #botao-busca {
+        width: 100%;
+    }
+
+    main {
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.7rem;
+        letter-spacing: 0.06em;
+    }
+
+    .imdb-badge {
+        width: 30%;
+    }
+    .trailer-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
