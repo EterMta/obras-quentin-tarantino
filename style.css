@@ -351,9 +351,14 @@ main {
         letter-spacing: 0.06em;
     }
 
+    .imdb-badge {
+        width: 50%;
+    }
+
     .trailer-btn {
         width: 100%;
         text-align: center;
     }
 }
+
 
