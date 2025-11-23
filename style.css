@@ -340,6 +340,10 @@ main {
         width: 100%;
     }
 
+    .imdb-badge {
+        width: 50%;
+    }
+
     main {
         margin-top: 1.5rem;
     }
@@ -360,5 +364,6 @@ main {
         text-align: center;
     }
 }
+
 
 
